@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waiting Screan</title>
+    <title>Waiting Screen</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/waitingScript.js" defer></script>
 </head>
@@ -14,17 +14,16 @@
     </div>
     <div>
         <h1>classes et compétences du jeu :</h1>
-        <button>class1</button>
-        <button>class2</button>
-        <button>class3</button>
-        <button>class4</button>
-        <button>class5</button>
-        <button>class6</button>
-        <br>
+        <div>
+            <?php
+                for($i = 1; $i < 7; $i++){
+                    echo '<button>class' . $i . '</button>';
+                }
+            ?>
+        </div>
         <button id="ready">Prêt</button>
         <br>
         <h1 id="player_id"></h1>
-
     </div>
 </body>
 </html>

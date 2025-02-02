@@ -6,7 +6,7 @@ const pseudo = document.getElementById("pseudo");
 
 createRoom.addEventListener("click", function() {
     var formData = new FormData();
-    formData.append("joueur1", pseudo.value);
+    formData.append("player1", pseudo.value);
 
     fetch("../back-end/php/creer_chambre.php", {
         /*method: "POST",
@@ -22,13 +22,11 @@ createRoom.addEventListener("click", function() {
             alert(data.message);
             return;
         }
-        alert("Chambre créée avec l'ID : " + data.chambre_id);
-        sessionStorage.setItem("room_id", data.chambre_id);
+        alert("Chambre créée avec l'ID : " + data.room_id);
+        sessionStorage.setItem("room_id", data.room_id);
         sessionStorage.setItem("player_id", data.player1_id);
 
-        window.location.href = "waiting.html";
-        
-
+        window.location.href = "waiting.php";
     });
 });
 
@@ -39,16 +37,16 @@ joinRoom.addEventListener("click", function() {
     fetch("../back-end/php/rejoindre_chambre.php", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: "chambre_id:" + encodeURIComponent(roomId)+"joueur2:"+ pseudo.value
+        body: "room_id:" + encodeURIComponent(roomId)+"joueur2:"+ pseudo.value
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
             alert("Rejoint avec succès !");
-            sessionStorage.setItem("room_id", data.chambre_id);
+            sessionStorage.setItem("room_id", data.room_id);
             sessionStorage.setItem("player_id", data.player2_id);
-            window.location.href = "waiting.html";
-        } else {
+            window.location.href = waiting.php;
+        } else {    
             alert(data.message);
         }
     });

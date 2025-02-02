@@ -15,7 +15,5 @@
     <br><br><br>
     <button id="joinRoom">Rejoindre</button>
     <input type="text" id="roomId" placeholder="ID de la chambre">
-    
-    
 </body>
 </html>
