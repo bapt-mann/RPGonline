@@ -14,20 +14,19 @@ if (empty($room_id) || empty($pseudoP2)) {
 }
 
 // Insérer le joueur 2 dans la table players
-$sql = "INSERT INTO players (pseudo, room_id) VALUES (:pseudoP2, :room_id)";
+$sql = "INSERT INTO players (pseudo) VALUES (:pseudoP2)";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
-    'pseudoP2' => $pseudoP2,
-    'room_id' => $room_id
+    'pseudoP2' => $pseudoP2
 ]);
 
 $player2_id = $pdo->lastInsertId(); // Récupération de l'ID du joueur 2
 
 // Mise à jour de la chambre pour passer à "en cours"
-$sql = "UPDATE rooms SET state = 'en cours', joueur2 = :pseudoP2 WHERE id = :room_id";
+$sql = "UPDATE rooms SET state = 'en cours', player2_id = :player2_id WHERE room_id = :room_id";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
-    'pseudoP2' => $pseudoP2,
+    'player2_id' => $player2_id,
     'room_id' => $room_id
 ]);
 
