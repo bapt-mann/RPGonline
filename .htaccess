@@ -1,0 +1,7 @@
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css
+
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9\-\/\_]*)$ src/index.php?p=$1
+
+ErrorDocument 404 /RPGonline/public/404.html
