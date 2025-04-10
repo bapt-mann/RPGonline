@@ -1,0 +1,12 @@
+{
+    "name": "rpg-online/rpg-online",
+    "autoload": {
+        "psr-4": {
+            "RPGonline\\": "src/",
+            "Model\\": "src/model",
+            "Controller\\": "src/controller",
+            "Core\\": "src/core"
+        }
+    },
+    "require": {}
+}
