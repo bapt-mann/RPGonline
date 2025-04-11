@@ -1,9 +1,61 @@
+/* Reset default styles and set a game-like background */
 body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a; /* Dark background for a game vibe */
     font-family: Arial, sans-serif;
-    text-align: center;
 }
 
-button {
-    padding: 10px;
-    margin: 5px;
+/* Center the menu container */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between buttons */
+}
+
+/* Style for the game title */
+.game-title {
+    font-size: 48px; /* Large title size */
+    color: #ffd700; /* Gold color to match the button borders */
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ff4500; /* Glowing effect with gold and a slight orange tint */
+    font-family: 'Georgia', serif; /* Decorative font with a serif fallback */
+    font-weight: bold;
+    margin-bottom: 30px; /* Space between title and buttons */
+    text-transform: uppercase; /* Uppercase to match the buttons */
+    letter-spacing: 2px; /* Slight spacing between letters for a dramatic effect */
+}
+
+/* Style for the game buttons */
+.game-button {
+    width: 200px; /* Fixed width for consistency */
+    padding: 15px 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff; /* White text */
+    background-color: #4a4a4a; /* Dark gray button background */
+    border: 3px solid #ffd700; /* Gold border for a game-like feel */
+    border-radius: 10px; /* Slightly rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    text-transform: uppercase; /* Match the uppercase style from your image */
+}
+
+/* Hover effect for the buttons */
+.game-button:hover {
+    background-color: #ffd700; /* Gold background on hover */
+    color: #1a1a1a; /* Dark text on hover for contrast */
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+}
+
+/* Active effect for when the button is clicked */
+.game-button:active {
+    transform: translateY(0); /* Reset the lift */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); /* Smaller shadow when pressed */
 }

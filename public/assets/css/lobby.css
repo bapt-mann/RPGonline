@@ -1,0 +1,135 @@
+Yes, we can definitely add a subtitle (using an <h2> tag) to each page to clearly indicate to the player whether they are on the "Create" or "Join" part of the website. This subtitle will be placed below the main "RPG Online" title but above the form, ensuring it’s visually distinct while maintaining the game-like aesthetic. We’ll style this subtitle to fit the existing design (gold color, glowing effect, etc.) by adding a new CSS rule to the style.css file.
+
+I’ll update the HTML for both the "Create" and "Join" pages to include an <h2> subtitle, and I’ll add a new CSS class to style.css to style it consistently with the rest of the design. Since these pages are rendered inside the $content_for_layout variable, the HTML will remain free of outer tags like <html>, <body>, or <main>, as per your layout structure.
+
+Updated style.css
+We’ll add a new class, .page-subtitle, to style the <h2> subtitle. This will ensure the subtitle matches the game aesthetic (gold color, glowing effect, etc.) but is slightly smaller than the main title to create a visual hierarchy.
+
+Here’s the updated style.css with the new rule added at the end:
+
+css
+
+Collapse
+
+Wrap
+
+Copy
+/* Reset default styles and set a game-like background */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a; /* Dark background for a game vibe */
+    font-family: Arial, sans-serif;
+}
+
+/* Center the menu container */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between buttons */
+}
+
+/* Style for the game title */
+.game-title {
+    font-size: 48px; /* Large title size */
+    color: #ffd700; /* Gold color to match the button borders */
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ff4500; /* Glowing effect with gold and a slight orange tint */
+    font-family: 'Georgia', serif; /* Decorative font with a serif fallback */
+    font-weight: bold;
+    margin-bottom: 30px; /* Space between title and buttons */
+    text-transform: uppercase; /* Uppercase to match the buttons */
+    letter-spacing: 2px; /* Slight spacing between letters for a dramatic effect */
+}
+
+/* Style for the game buttons */
+.game-button {
+    width: 200px; /* Fixed width for consistency */
+    padding: 15px 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff; /* White text */
+    background-color: #4a4a4a; /* Dark gray button background */
+    border: 3px solid #ffd700; /* Gold border for a game-like feel */
+    border-radius: 10px; /* Slightly rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    text-transform: uppercase; /* Match the uppercase style from your image */
+}
+
+/* Hover effect for the buttons */
+.game-button:hover {
+    background-color: #ffd700; /* Gold background on hover */
+    color: #1a1a1a; /* Dark text on hover for contrast */
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+}
+
+/* Active effect for when the button is clicked */
+.game-button:active {
+    transform: translateY(0); /* Reset the lift */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); /* Smaller shadow when pressed */
+}
+
+/* Container for the form */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2a2a2a; /* Slightly lighter dark background for the form */
+    padding: 30px;
+    border: 3px solid #ffd700; /* Gold border to match the buttons */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+/* Style for form labels */
+.form-label {
+    font-size: 18px;
+    color: #ffd700; /* Gold text for labels */
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Style for form input fields */
+.form-input {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff; /* White text in inputs */
+    background-color: #4a4a4a; /* Dark gray background to match buttons */
+    border: 2px solid #ffd700; /* Gold border */
+    border-radius: 5px;
+    margin-bottom: 20px; /* Space between inputs and button */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease;
+}
+
+/* Hover/focus effect for input fields */
+.form-input:hover,
+.form-input:focus {
+    border-color: #ff4500; /* Orange border on hover/focus for contrast */
+}
+
+/* Ensure the button inside the form matches the game-button style */
+.form-container .game-button {
+    margin-top: 10px; /* Add some space above the button */
+}
+
+/* New style for the page subtitle */
+.page-subtitle {
+    font-size: 28px; /* Smaller than the main title but still prominent */
+    color: #ffd700; /* Gold color to match the theme */
+    text-shadow: 0 0 8px #ffd700, 0 0 15px #ff4500; /* Slightly smaller glow effect */
+    font-family: 'Georgia', serif; /* Same font as the main title */
+    font-weight: bold;
+    margin-bottom: 20px; /* Space between subtitle and form */
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Slightly less spacing than the main title */
+}
