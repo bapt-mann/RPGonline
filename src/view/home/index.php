@@ -11,7 +11,7 @@ Bouttons:
 -->
 <div class="menu-container">
         <a href="<?=URL?>">
-                <h1 class="game-title">RPG Online</h1>
+        <h1 class="game-title title">RPG Online</h1>
         </a>
         <a href="<?=URL?>Lobby/create">
                 <button class="game-button">CREATE</button>

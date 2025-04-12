@@ -23,6 +23,15 @@ define("ROOT", str_replace("index.php", "", $_SERVER["SCRIPT_FILENAME"]));
 // URL = RPGonline/
 define("URL", str_replace("src/index.php", "", $_SERVER["SCRIPT_NAME"]));
 
+// Loads environment variables
+require "service/env.php";
+try {
+    $env = loadEnv(ROOT . '../.env');
+} catch (Exception $e) {
+    die("Error loading environment: " . $e->getMessage());
+}
+
+
 if (file_exists(ROOT."controller/$controller.php"))
 {
     require_once ROOT."controller/$controller.php";

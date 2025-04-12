@@ -1,4 +1,29 @@
-/* Reset default styles and set a game-like background */
+/* === CSS Variables (Theme) === */
+:root {
+    /* Colors */
+    --background-dark: #1a1a1a; /* Main background */
+    --background-card: #2a2a2a; /* Card/form background */
+    --background-placeholder: #4a4a4a; /* Placeholder background */
+    --text-primary: #fff; /* White text */
+    --accent-gold: #ffd700; /* Gold for borders and text */
+    --highlight-orange: #ff4500; /* Orange for highlights */
+    --ready-teal: #40e0d0; /* Teal for ready state and chatbox */
+
+    /* Fonts */
+    --font-primary: Arial, sans-serif;
+    --font-decorative: 'Georgia', serif;
+
+    /* Shadows */
+    --shadow-default: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.5);
+    --shadow-active: 0 3px 10px rgba(0, 0, 0, 0.3);
+    --shadow-card: 0 5px 15px rgba(0, 0, 0, 0.5);
+
+    /* Transitions */
+    --transition-default: all 0.3s ease;
+}
+
+/* === Global Styles === */
 body {
     margin: 0;
     padding: 0;
@@ -6,56 +31,215 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1a1a1a; /* Dark background for a game vibe */
-    font-family: Arial, sans-serif;
+    background-color: var(--background-dark);
+    font-family: var(--font-primary);
 }
 
-/* Center the menu container */
+a {
+    text-decoration: none;
+}
+
+/* === Typography === */
+.title {
+    color: var(--accent-gold);
+    text-shadow: 0 0 10px var(--accent-gold), 0 0 20px var(--highlight-orange);
+    font-family: var(--font-decorative);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.game-title {
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+
+.page-subtitle {
+    font-size: 28px;
+    text-shadow: 0 0 8px var(--accent-gold), 0 0 15px var(--highlight-orange); /* Slightly smaller glow */
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-size: 18px;
+    color: var(--accent-gold);
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.player-name {
+    font-size: 18px;
+    color: var(--accent-gold);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* === Buttons === */
+.game-button,
+.ready-button {
+    font-weight: bold;
+    color: var(--text-primary);
+    background-color: var(--background-placeholder);
+    border: 3px solid var(--accent-gold);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition-default);
+    text-transform: uppercase;
+}
+
+.game-button {
+    width: 200px;
+    padding: 15px 0;
+    font-size: 20px;
+    box-shadow: var(--shadow-default);
+}
+
+.ready-button {
+    padding: 8px 15px;
+    font-size: 14px;
+    border-width: 2px;
+}
+
+.game-button:hover,
+.ready-button:hover {
+    background-color: var(--accent-gold);
+    color: var(--background-dark);
+}
+
+.game-button:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.game-button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-active);
+}
+
+.ready-button.active {
+    background-color: var(--ready-teal);
+    border-color: var(--highlight-orange);
+}
+
+/* === Containers === */
 .menu-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Space between buttons */
+    gap: 20px;
 }
 
-/* Style for the game title */
-.game-title {
-    font-size: 48px; /* Large title size */
-    color: #ffd700; /* Gold color to match the button borders */
-    text-shadow: 0 0 10px #ffd700, 0 0 20px #ff4500; /* Glowing effect with gold and a slight orange tint */
-    font-family: 'Georgia', serif; /* Decorative font with a serif fallback */
+.form-container,
+.player-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background-card);
+    padding: 30px;
+    border: 3px solid var(--accent-gold);
+    border-radius: 15px;
+    box-shadow: var(--shadow-card);
+}
+
+.form-container .game-button {
+    margin-top: 10px;
+}
+
+.waiting-room-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.players-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.player-card {
+    flex-direction: row;
+    padding: 15px;
+    gap: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.player-card.ready {
+    background-color: var(--ready-teal);
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* === Form Elements === */
+.form-input {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    color: var(--text-primary);
+    background-color: var(--background-placeholder);
+    border: 2px solid var(--accent-gold);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:hover,
+.form-input:focus {
+    border-color: var(--highlight-orange);
+}
+
+/* === Placeholders === */
+.profile-placeholder,
+.character-placeholder {
+    background-color: var(--background-placeholder);
+    border: 2px solid var(--accent-gold);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.profile-placeholder {
+    width: 50px;
+    height: 50px;
+    font-size: 12px;
+}
+
+.character-placeholder {
+    width: 40px;
+    height: 40px;
+    font-size: 10px;
+}
+
+.characters-container {
+    display: flex;
+    gap: 10px;
+    margin-right: 5px;
+}
+
+/* === Chatbox === */
+.chatbox {
+    width: 200px;
+    height: 300px;
+    background-color: var(--ready-teal);
+    border: 3px solid var(--accent-gold);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--background-dark);
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 30px; /* Space between title and buttons */
-    text-transform: uppercase; /* Uppercase to match the buttons */
-    letter-spacing: 2px; /* Slight spacing between letters for a dramatic effect */
-}
-
-/* Style for the game buttons */
-.game-button {
-    width: 200px; /* Fixed width for consistency */
-    padding: 15px 0;
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff; /* White text */
-    background-color: #4a4a4a; /* Dark gray button background */
-    border: 3px solid #ffd700; /* Gold border for a game-like feel */
-    border-radius: 10px; /* Slightly rounded corners */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-    cursor: pointer;
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
-    text-transform: uppercase; /* Match the uppercase style from your image */
-}
-
-/* Hover effect for the buttons */
-.game-button:hover {
-    background-color: #ffd700; /* Gold background on hover */
-    color: #1a1a1a; /* Dark text on hover for contrast */
-    transform: translateY(-5px); /* Slight lift effect */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
-}
-
-/* Active effect for when the button is clicked */
-.game-button:active {
-    transform: translateY(0); /* Reset the lift */
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); /* Smaller shadow when pressed */
+    text-align: center;
+    box-shadow: var(--shadow-card);
 }
